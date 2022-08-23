@@ -3,8 +3,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import githubLogo from '../src/GitHub_Logo_White.png';
 
-
-import HomePage from './Components/HomePage';
+//components
+import Tasks from './Components/Tasks';
+import Login from './Components/Login';
+import Logout from './Components/Logout';
 
 function App() {
   return (
@@ -12,19 +14,30 @@ function App() {
       <main className="main">
         <header className="header">
           <nav className="navigation">
-            <Link to="/">Home</Link>
+            <Link to="/">Tasks</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/logout">Logout</Link>
           </nav>
         </header>
 
         <Switch>
-          <Route path="/">
-            <HomePage />
+          <Route exact path="/">
+            <Tasks />
+          </Route>
+
+          <Route exact path="/logout">
+            <Logout />
+          </Route>
+
+          <Route exact path="/login">
+            <Login />
           </Route>
         </Switch>
+
         <footer>
           <div className="media-links">
             <h4>
-              find me on{' '}
+              find the dev on
               <a href="https://github.com/kashitamang">
                 <img src={githubLogo} alt="black github logo" className="rotate"></img>
               </a>
