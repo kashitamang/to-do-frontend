@@ -1,14 +1,22 @@
 import '../src/styles/App.css';
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
+//assets
 import githubLogo from '../src/GitHub_Logo_White.png';
 
 //components
 import Tasks from './Components/Tasks';
 import Login from './Components/Login';
 import Logout from './Components/Logout';
+import SignUp from './Components/SignUp';
+
+//functions 
+
 
 function App() {
+
+  //set state 
   return (
     <Router>
       <main className="main">
@@ -17,6 +25,7 @@ function App() {
             <Link to="/">Tasks</Link>
             <Link to="/login">Login</Link>
             <Link to="/logout">Logout</Link>
+            <Link to="/signup">Sign Up</Link>
           </nav>
         </header>
 
@@ -31,6 +40,10 @@ function App() {
 
           <Route exact path="/login">
             <Login />
+          </Route>
+
+          <Route exact path="/signup">
+            <SignUp />
           </Route>
         </Switch>
 
