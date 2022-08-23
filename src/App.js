@@ -1,24 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import '../src/styles/App.css';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import githubLogo from '../src/GitHub_Logo_White.png';
+
+
+import HomePage from './Components/HomePage';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <main className="main">
+        <header className="header">
+          <nav className="navigation">
+            <Link to="/">Home</Link>
+          </nav>
+        </header>
+
+        <Switch>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+        <footer>
+          <div className="media-links">
+            <h4>
+              find me on{' '}
+              <a href="https://github.com/kashitamang">
+                <img src={githubLogo} alt="black github logo" className="rotate"></img>
+              </a>
+            </h4>
+          </div>
+        </footer>
+      </main>
+    </Router>
   );
 }
 
