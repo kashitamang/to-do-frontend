@@ -1,6 +1,8 @@
-const BASE_URL = 'https://localhost:7890/api/v1/users';
+const BASE_URL = 'https://localhost:7890';
 
 //signup
+
+//maybe curlies
 export async function signUpUser(userInfo) {
   const resp = await fetch(`${BASE_URL}/api/v1/users`, {
     method: 'POST',
@@ -17,12 +19,18 @@ export async function signUpUser(userInfo) {
   } else {
     console.error(data.message);
   }
-
-  //getUser
-
-  //checkUser 
-
-  //redirectIfloggedin
-
-  //logout
 }
+
+//getUser
+export async function getUser() {
+  const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
+    method: 'GET',
+    credentials: 'include',
+  });
+  return resp.json();
+}
+//checkUser
+
+//redirectIfloggedin
+
+//logout

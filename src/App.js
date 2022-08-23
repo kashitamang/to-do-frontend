@@ -1,9 +1,9 @@
-import '../src/styles/App.css';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 //assets
 import githubLogo from '../src/GitHub_Logo_White.png';
+import '../src/styles/App.css';
 
 //components
 import Tasks from './Components/Tasks';
@@ -12,10 +12,23 @@ import Logout from './Components/Logout';
 import SignUp from './Components/SignUp';
 
 //functions 
+import getUser from './services/fetch-utils';
 
 
 function App() {
+  const [currentUser, setCurrentUser] = useState({});
 
+  useEffect(() => {
+    //create async function to fetchData
+    const fetchData = async () => {
+      const user = await getUser();
+      setCurrentUser(user);
+    };
+    //call the function and set it to user 
+    fetchData();
+    //set currentUser to user variable 
+  }, []);
+  
   //set state 
   return (
     <Router>
