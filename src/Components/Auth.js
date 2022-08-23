@@ -9,7 +9,7 @@ import '../styles/index.css';
 import { signUpUser } from '../services/fetch-utils.js';
 
 //signup function
-export default function SignUp({ setCurrentUser }) {
+export default function Auth({ setCurrentUser }) {
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
 
