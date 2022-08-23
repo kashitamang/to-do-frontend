@@ -10,21 +10,21 @@ import Tasks from './Components/Tasks';
 import Auth from './Components/Auth';
 
 //functions
-import { getUser } from './services/fetch-utils';
+// import { getUser } from './services/fetch-utils';
 
 function App() {
-  const [currentUser, setCurrentUser] = useState('');
+  const [currentUser, setCurrentUser] = useState({});
 
-  useEffect(() => {
-    //create async function to fetchData
-    const fetchData = async () => {
-      const user = await getUser();
-      setCurrentUser(user);
-    };
-    //call the function and set it to user
-    fetchData();
-    //set currentUser to user variable
-  }, []);
+  // useEffect(() => {
+  //   //create async function to fetchData
+  //   const fetchData = async () => {
+  //     const user = await getUser();
+  //     setCurrentUser(user);
+  //   };
+  //   //call the function and set it to user
+  //   fetchData();
+  //   //set currentUser to user variable
+  // }, []);
 
   //set state
   return (

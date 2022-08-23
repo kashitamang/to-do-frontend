@@ -23,7 +23,7 @@ export default function Auth({ setCurrentUser }) {
   async function handleSignUp(e) {
     e.preventDefault();
 
-    const user = await signUpUser(signUpEmail, signUpPassword);
+    const user = await signUpUser({ email: signUpEmail, password: signUpPassword });
     setCurrentUser(user);
     clearForms();
   }

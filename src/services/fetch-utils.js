@@ -1,4 +1,4 @@
-const BASE_URL = 'https://localhost:7890';
+const BASE_URL = 'http://localhost:7890';
 
 //signup
 
@@ -22,13 +22,13 @@ export async function signUpUser(userInfo) {
 }
 
 //getUser
-export async function getUser() {
-  const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
-    method: 'GET',
-    credentials: 'include',
-  });
-  return resp.json();
-}
+// export async function getUser() {
+//   const resp = await fetch(`${BASE_URL}/api/v1/users/me`, {
+//     method: 'GET',
+//     credentials: 'include',
+//   });
+//   return resp.json();
+// }
 //checkUser
 
 //redirectIfloggedin
