@@ -5,10 +5,9 @@ form {
     padding: 40px;
 }
 
-.signup {
+.auth-forms {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+
 }
 
 input {
