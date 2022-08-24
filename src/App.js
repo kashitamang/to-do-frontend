@@ -11,6 +11,7 @@ import Auth from './Components/Auth';
 
 //functions
 import { getUser } from './services/fetch-utils';
+import { logout } from './services/fetch-utils';
 
 function App() {
   const [currentUser, setCurrentUser] = useState({});
@@ -32,9 +33,13 @@ function App() {
       <main className="main">
         <header className="header">
           <nav className="navigation">
-            <Link to="/">Login</Link>
             <Link to="/tasks">Tasks</Link>
-            <button>Logout</button>
+            {
+              !currentUser 
+                ? <Link to="/">Login</Link>
+                : <button onClick={logout}>Logout</button>
+            }
+            
           </nav>
         </header>
 

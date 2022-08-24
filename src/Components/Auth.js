@@ -45,8 +45,6 @@ export default function Auth({ setCurrentUser }) {
     clearForms();
   }
 
-  // redirectIfLoggedIn();
-
   return (
     <div className="auth-forms">
 
@@ -92,7 +90,7 @@ export default function Auth({ setCurrentUser }) {
         />
         <button className="button is-primary">Sign In</button>
       </form>
-      
+
     </div>
   );
 }
