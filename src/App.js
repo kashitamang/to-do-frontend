@@ -62,12 +62,12 @@ function App() {
         </Switch>
         <footer>
           <div className="media-links">
-            <h4>
+            {/* <h4>
               find the dev on
               <a href="https://github.com/kashitamang">
                 <img src={githubLogo} alt="black github logo" className="rotate"></img>
               </a>
-            </h4>
+            </h4> */}
           </div>
         </footer>
       </main>

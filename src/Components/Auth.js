@@ -48,28 +48,6 @@ export default function Auth({ setCurrentUser }) {
   return (
     <div className="auth-forms">
 
-      <h1>Sign Up</h1>
-      <form id="sign-up-form" onSubmit={handleSignUp}>
-        <input
-          type="email"
-          name="email"
-          className="input"
-          placeholder="Email"
-          value={signUpEmail}
-          onChange={(e) => setSignUpEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          name="password"
-          className="input"
-          placeholder="Password"
-          value={signUpPassword}
-          onChange={(e) => setSignUpPassword(e.target.value)}
-        />
-        <button className="button is-primary">Create Account</button>
-      </form>
-
-
       <h1>Sign In</h1>
       <form id="sign-in-form" onSubmit={handleSignIn}>
         <input
@@ -91,6 +69,26 @@ export default function Auth({ setCurrentUser }) {
         <button className="button is-primary">Sign In</button>
       </form>
 
+      <h1>Not a user yet?</h1>
+      <form id="sign-up-form" onSubmit={handleSignUp}>
+        <input
+          type="email"
+          name="email"
+          className="input"
+          placeholder="Email"
+          value={signUpEmail}
+          onChange={(e) => setSignUpEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          name="password"
+          className="input"
+          placeholder="Password"
+          value={signUpPassword}
+          onChange={(e) => setSignUpPassword(e.target.value)}
+        />
+        <button className="button is-primary">Create Account</button>
+      </form>
     </div>
   );
 }
