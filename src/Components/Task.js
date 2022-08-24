@@ -3,8 +3,8 @@ import React from 'react';
 export default function Task({ task }) {
   return (
     <div className="task-card">
-      <p>{task.content}</p>
-      <p>{task.completed}</p>
+      <h4>{task.content}</h4>
+      <input type="checkbox" checked={task.completed}></input>
     </div>
   );
 }

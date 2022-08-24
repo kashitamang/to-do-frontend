@@ -1,14 +1,14 @@
 import React, {
   useState,
-  // useEffect,
+  useEffect,
 } from 'react';
 import '../styles/index.css';
-// import { getTasks } from '../services/fetch-utils';
+import { getTasks } from '../services/fetch-utils';
 import { createNewTask } from '../services/fetch-utils';
-// import TaskList from './TaskList';
+import TaskList from './TaskList';
 
 export default function Tasks() {
-  // const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);
   const [newContent, setNewContent] = useState('');
 
   //clears form
@@ -24,14 +24,14 @@ export default function Tasks() {
     clearForm();
   }
 
-  // useEffect(() => {
-  //   //create async function to fetch all tasks using getTasks()
-  //   const fetchTasks = async () => {
-  //     const tasks = await getTasks();
-  //     setTasks(tasks);
-  //   };
-  //   fetchTasks();
-  // }, []);
+  useEffect(() => {
+    //create async function to fetch all tasks using getTasks()
+    const fetchTasks = async () => {
+      const tasks = await getTasks();
+      setTasks(tasks);
+    };
+    fetchTasks();
+  }, []);
 
   console.log(newContent);
 
@@ -39,8 +39,7 @@ export default function Tasks() {
     <div className="tasks">
       <div>
         <h1>Your Tasks</h1>
-        <p>tasks will go here</p>
-        {/* <TaskList tasks={tasks} /> */}
+        <TaskList tasks={tasks} />
       </div>
       <form className="form" onSubmit={handleAdd}>
         <h2>add to your list</h2>

@@ -81,19 +81,19 @@ export async function createNewTask(content) {
   }
 }
 
-// export async function getTasks() {
-//   const resp = await fetch(`${BASE_URL}/api/v1/tasks`, {
-//     method: 'GET',
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     },
-//     credentials: 'include',
-//   });
-//   const data = await resp.json();
-//   if (resp.ok) {
-//     return data;
-//   } else {
-//     throw new Error(data.message);
-//   }
-// }
+export async function getTasks() {
+  const resp = await fetch(`${BASE_URL}/api/v1/tasks`, {
+    method: 'GET',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+  });
+  const data = await resp.json();
+  if (resp.ok) {
+    return data;
+  } else {
+    throw new Error(data.message);
+  }
+}
