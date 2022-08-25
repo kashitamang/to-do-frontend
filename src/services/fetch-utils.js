@@ -15,7 +15,7 @@ export async function signUpUser(userInfo) {
   if (resp.ok) {
     location.replace('./tasks');
   } else {
-    console.error(data.message);
+    console.error(data.message); //eslint-disable-line
   }
 }
 
@@ -50,7 +50,7 @@ export async function signInUser(userInfo) {
   if (res.ok) {
     location.replace('./tasks');
   } else {
-    console.error(data.message);
+    console.error(data.message); //eslint-disable-line
   }
 }
 

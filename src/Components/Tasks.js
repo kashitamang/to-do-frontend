@@ -33,7 +33,7 @@ export default function Tasks() {
     fetchTasks();
   }, []);
 
-  console.log(newContent);
+  console.log(newContent);//eslint-disable-line
 
   return (
     <div className="tasks">
@@ -47,7 +47,7 @@ export default function Tasks() {
           type="text" 
           name="content" 
           className="input" 
-          placeholder="do laundry" 
+          placeholder="ie. do laundry" 
           value={newContent}
           onChange={(e) => setNewContent(e.target.value)}/>
         <button>

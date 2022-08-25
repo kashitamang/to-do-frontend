@@ -1,5 +1,6 @@
 import React from 'react';
 import Task from './Task';
+import '../styles/Task.css';
 
 export default function TaskList({ tasks }) {
   return (
