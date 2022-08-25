@@ -97,3 +97,20 @@ export async function getTasks() {
     throw new Error(data.message);
   }
 }
+
+export async function deleteTask(id) {
+  const resp = await fetch(`${BASE_URL}/api/v1/tasks/${id}`, {
+    method: 'DELETE',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+  });
+  const data = await resp.json();
+  if (resp.ok) {
+    return data;
+  } else {
+    throw new Error(data.message);
+  }
+}
