@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+
 .tasks {
     display: flex;
     flex-direction: row;
@@ -8,5 +10,29 @@
 .task-list {
     display: flex;
     align-items: flex-start;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.task-card {
+    border-top: 1px solid rgb(62, 62, 62);
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.task-card h4 {
+    color: var(--light-grey);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
 }

@@ -21,12 +21,18 @@ export default function Task({ task, tasks, setTasks }) {
   return (
     <div className="task-card">
       <h4>
-        {/* <input type="checkbox" checked={task.completed}></input> */}
+        <input 
+          type="checkbox" 
+          checked={task.completed}
+          title="check off task"></input>
         {task.content}
         {
           //listen to the change
         }
-        <button onClick={(e) => handleDelete(e, task)}>delete</button>
+        <button 
+          className="material-symbols-outlined"
+          title="delete task forever"
+          onClick={(e) => handleDelete(e, task)}>delete</button>
       </h4>
       
     </div>
