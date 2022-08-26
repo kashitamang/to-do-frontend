@@ -12,15 +12,15 @@ export default function Task({ task, tasks, setTasks }) {
   async function handleDelete(e, taskToBeDeleted) {
     e.preventDefault();
 
-    const deleteTasks = await deleteTask(taskToBeDeleted.id);
-    const newTasks = tasks.filter(task => taskToBeDeleted.id !== task.id);
+    const deleteTasks = await deleteTask(taskToBeDeleted.id); //eslint-disable-line
+    const newTasks = tasks.filter(task => taskToBeDeleted.id !== task.id); 
 
     setTasks(newTasks);
   }
 
 
   async function handleCheck(taskToBeCompleted) {
-    const completeTasks = await completeTask(taskToBeCompleted);
+    const completeTasks = await completeTask(taskToBeCompleted); //eslint-disable-line
     setChecked(!checked);
   }
 
@@ -39,7 +39,6 @@ export default function Task({ task, tasks, setTasks }) {
           title="delete task forever"
           onClick={(e) => handleDelete(e, task)}>delete</button>
       </h4>
-      
     </div>
   );
 }
