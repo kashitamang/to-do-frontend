@@ -1,0 +1,66 @@
+import React, {
+  useState,
+  useEffect,
+} from 'react';
+import '../styles/index.css';
+import { getTasks } from '../services/fetch-utils';
+import { createNewTask } from '../services/fetch-utils';
+import TaskList from './TaskList';
+
+//Tasks page
+export default function Tasks() {
+  const [tasks, setTasks] = useState([]);
+  const [newContent, setNewContent] = useState('');
+
+  //clears form
+  function clearForm() {
+    setNewContent('');
+  }
+
+  async function handleAdd(e) {
+    e.preventDefault();
+
+    const addedTask = await createNewTask(newContent);
+    const newTasks = tasks.concat([addedTask]);
+    // console.log('newTasks', newTasks);
+    
+    setTasks(newTasks);
+    clearForm();
+  }
+
+  useEffect(() => {
+    //create async function to fetch all tasks using getTasks()
+    const fetchTasks = async () => {
+      const tasks = await getTasks();
+      setTasks(tasks);
+    };
+    fetchTasks();
+  }, []);
+
+  // console.log(newContent);//eslint-disable-line
+
+  return (
+    <div className="tasks">
+      <div>
+        <h1>Your Tasks</h1>
+        <TaskList 
+          tasks={tasks} 
+          setTasks={setTasks}/>
+      </div>
+      <form className="form" onSubmit={handleAdd}>
+        <h2>add to your list</h2>
+        <input 
+          type="text" 
+          name="content" 
+          className="input" 
+          placeholder="ie. do laundry" 
+          value={newContent}
+          onChange={(e) => setNewContent(e.target.value)}/>
+        <button>
+          <span></span>
+        </button>
+        <button>add</button>
+      </form>
+    </div>
+  );
+}
