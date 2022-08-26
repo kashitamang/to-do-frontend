@@ -114,3 +114,21 @@ export async function deleteTask(id) {
     throw new Error(data.message);
   }
 }
+
+export async function completeTask(task) {
+  const resp = await fetch(`${BASE_URL}/api/v1/tasks/${task.id}`, {
+    method: 'PUT',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
+    body: JSON.stringify({ completed: !task.completed }),
+  });
+  const data = await resp.json();
+  if (resp.ok) {
+    return data;
+  } else {
+    throw new Error(data.message);
+  }
+}

@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useState } from 'react';
 import '../styles/Task.css';
 
 //import
-import { deleteTask } from '../services/fetch-utils';
+import { deleteTask, completeTask } from '../services/fetch-utils';
 
 export default function Task({ task, tasks, setTasks }) {
+  const [checked, setChecked] = useState(false);
 
-  //handleDelete
+
   async function handleDelete(e, taskToBeDeleted) {
     e.preventDefault();
 
     const deleteTasks = await deleteTask(taskToBeDeleted.id);
-    const newTasks = tasks.filter(t => taskToBeDeleted.id !== t.id);
-    // console.log(newTasks);
+    const newTasks = tasks.filter(task => taskToBeDeleted.id !== task.id);
 
     setTasks(newTasks);
-    //t is for task we are operating on could be "task"
+  }
+
+
+  async function handleCheck(taskToBeCompleted) {
+    const completeTasks = await completeTask(taskToBeCompleted);
+    setChecked(!checked);
   }
 
   return (
@@ -23,12 +29,11 @@ export default function Task({ task, tasks, setTasks }) {
       <h4>
         <input 
           type="checkbox" 
-          checked={task.completed}
-          title="check off task"></input>
+          title="check off task"
+          value={checked}
+          onChange={() => handleCheck(task)}
+        ></input>
         {task.content}
-        {
-          //listen to the change
-        }
         <button 
           className="material-symbols-outlined"
           title="delete task forever"
